@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Stor.Models.Category>
+
+<h1>Categories</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create category</a>
+</p>
+
+<div class="row gap-5 justify-content-between ">
+    @foreach (var item in Model)
+    {
+        <div class="card col-5 bg-secondary">
+            <div class="text-light card-body text-center ">
+                <h1 class=" text-center card-title">@Html.DisplayFor(modelItem => item.Name)</h1>
+                <h5 class=" card-text fw-bold">Description : @Html.DisplayFor(modelItem => item.Description)</h5>
+                <div class="d-flex justify-content-around">
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
